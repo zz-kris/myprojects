@@ -1,0 +1,162 @@
+<view style='background-color:{{backgroundC}}'>
+<view>
+ <loading hidden="{{loaddingHide}}">
+  加载中...
+ </loading>
+</view>
+
+<view class="mask" catchtouchmove="preventTouchMove" bindtap="maskTap" wx:if="{{modal.showModal}}"></view>
+<view class="modalDlg" catchtouchmove="preventTouchMove" wx:if="{{modal.showModal}}">
+    <view><text class="mfont-size">小贴士</text></view>
+    <view style='width: 100%; height:1px;margin-top: 10px; margin-bottom: 8px; background-color: rgba(255,255,255, 0.5);'></view>
+    <view style='text-align: left;'><text class="lsfont-size" decode="true" space="true">{{modal.contnet}}</text></view>
+</view>
+
+<view class="mask" catchtouchmove="preventTouchMove" style="z-index:11;visibility:{{pickerCity.addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+<view class="picker-view" animation="{{pickerCity.animationAddressMenu}}" style="visibility:{{pickerCity.addressMenuIsShow ? 'visible':'hidden'}}">
+  <view style="height:10% ;width:95%;margin-top:4px;margin-bottom:4px">
+    <text class='smfont-size' style="float: left" catchtap="cityCancel">取消</text>
+    <text class='smfont-size' style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{pickerCity.value}}" wx:key="">
+    <picker-view-column>
+      <view wx:for="{{pickerCity.provinces}}" class="picker-item" wx:key="index">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{pickerCity.citys}}" class="picker-item" wx:key="index">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{pickerCity.areas}}" class="picker-item" wx:key="index">
+        {{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<view class="topWarp {{backgroundImg}}">
+  <view class="location">
+    <image mode='aspectFit' style='margin-top: 5px; margin-right: 4px; width:15px; height:15px;' src='../../img/location.svg'></image>
+    <text class="lfont-size">{{currentCity}}</text>
+    <text class="sfont-size" bindtap='changecityTap' style='margin-left: 4px;'>[更换]</text>
+  </view>
+
+  <view>
+    <text class="sssfont-size">{{updateDatetime}}</text>
+  </view>
+
+  <view class="weather">
+    <view>
+      <text style='font-size: 100px; padding-left: 20px;'>{{currentWeather.temperature}}</text>
+      <text style='font-size: 60px; padding-left: 10px;'>℃</text>
+    </view>
+    <view><text class="smfont-size">{{currentWeather.weather}}</text></view>
+    <view id='pm25' bindtap='pm25tap' style='visibility:{{pm25Show}}'><text class="lsfont-size" style='background-color: {{pm25bg}}; border-radius: 4px;padding-left: 6px; padding-right: 6px; padding-top: 2px; padding-bottom: 2px; text-decoration:underline;opacity:0.75;'>{{currentWeather.pm25}}</text></view>
+  </view>
+</view>
+<view class='future'>
+  <view style='flex-grow: 1;'>
+    <view>
+      <text class="smfont-size">{{future[0].date}}</text>
+    </view>
+    <view>
+      <image mode='aspectFit' style='width:15px; height:15px;' src='{{future[0].dayPictureUrl}}'></image>
+      <image mode='aspectFit' style='width:15px; height:15px; margin-left: 4px;' src='{{future[0].nightPictureUrl}}'></image>
+    </view>
+    <text class="ssfont-size">{{future[0].temperature}}\n{{future[0].weather}}\n{{future[0].wind}}</text>
+  </view>
+  <view style='width:1px;margin-top:10px;margin-bottom:10px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='flex-grow: 1;'>
+    <view>
+      <text class="smfont-size">{{future[1].date}}</text>
+    </view>
+    <view>
+      <image mode='aspectFit' style='width:15px; height:15px;' src='{{future[1].dayPictureUrl}}'></image>
+      <image mode='aspectFit' style='width:15px; height:15px; margin-left: 4px;' src='{{future[1].nightPictureUrl}}'></image>
+    </view>
+    <text class="ssfont-size">{{future[1].temperature}}\n{{future[1].weather}}\n{{future[1].wind}}</text>
+  </view>
+  <view style='width:1px;margin-top:10px;margin-bottom:10px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='flex-grow: 1;'>
+    <view>
+      <text class="smfont-size">{{future[2].date}}</text>
+    </view>
+    <view>
+      <image mode='aspectFit' style='width:15px; height:15px;' src='{{future[2].dayPictureUrl}}'></image>
+      <image mode='aspectFit' style='width:15px; height:15px; margin-left: 4px;' src='{{future[2].nightPictureUrl}}'></image>
+    </view>
+    <text class="ssfont-size">{{future[2].temperature}}\n{{future[2].weather}}\n{{future[2].wind}}</text>
+  </view>
+  <view style='width:1px;margin-top:10px;margin-bottom:10px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='flex-grow: 1;'>
+    <view>
+      <text class="smfont-size">{{future[3].date}}</text>
+    </view>
+    <view>
+      <image mode='aspectFit' style='width:15px; height:15px;' src='{{future[3].dayPictureUrl}}'></image>
+      <image mode='aspectFit' style='width:15px; height:15px; margin-left: 4px;' src='{{future[3].nightPictureUrl}}'></image>
+    </view>
+    <text class="ssfont-size">{{future[3].temperature}}\n{{future[3].weather}}\n{{future[3].wind}}</text>
+  </view>
+</view>
+
+<view class='index'>
+  <view style='display: flex; align-items: center;'>
+    <view style='padding:16px;'>
+      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[0].title}}.svg'></image>
+    </view>
+    <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
+      <rich-text class="smfont-size" id='{{index[0].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[0].tipt}} {{index[0].zs}}</rich-text>
+      <text class="ssfont-size">{{index[0].des}}</text>
+    </view>
+  </view>
+  <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='display: flex; align-items: center;'>
+    <view style='padding:16px;'>
+      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[1].title}}.svg'></image>
+    </view>
+    <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
+      <rich-text class="smfont-size" id='{{index[1].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[1].tipt}} {{index[1].zs}}</rich-text>
+      <text class="ssfont-size">{{index[1].des}}</text>
+    </view>
+  </view>
+  <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='display: flex; align-items: center;'>
+    <view style='padding:16px;'>
+      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[2].title}}.svg'></image>
+    </view>
+    <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
+      <rich-text class="smfont-size" id='{{index[2].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[2].tipt}} {{index[2].zs}}</rich-text>
+      <text class="ssfont-size">{{index[2].des}}</text>
+    </view>
+  </view>
+  <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='display: flex; align-items: center;'>
+    <view style='padding:16px;'>
+      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[3].title}}.svg'></image>
+    </view>
+    <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
+      <rich-text class="smfont-size" id='{{index[3].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[3].tipt}} {{index[3].zs}}</rich-text>
+      <text class="ssfont-size">{{index[3].des}}</text>
+    </view>
+  </view>
+  <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
+  <view style='display: flex; align-items: center;'>
+    <view style='padding:16px;'>
+      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[4].title}}.svg'></image>
+    </view>
+    <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
+      <rich-text class="smfont-size" id='{{index[4].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[4].tipt}} {{index[4].zs}}</rich-text>
+      <text class="lsfont-size">{{index[4].des}}</text>
+    </view>
+  </view>
+</view>
+<view class="index" style="margin:0;padding:10px 0;border-top:1px solid rgba(255,255,255, 0.5)">
+  <text class='ssfont-size' style='color:rgba(255,255,255, 1);'>数据来源于百度地图开放平台</text>
+</view>
+<view class="modalDlgshade" catchtouchmove="preventTouchMove" wx:if="{{modal.showshade}}">
+  <view class='wrapper'> 
+    <list-html data="{{city}}" my-city="北京" binddetail="binddetail"></list-html>
+  </view> 
+</view>
+<view class="mask" catchtouchmove="preventTouchMove" bindtap="maskTap2" wx:if="{{modal.showModal2}}"></view>
+</view>

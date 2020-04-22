@@ -138,6 +138,20 @@ Page({
     }
 
   },
+  getweather(){
+    if (this.data.isLogin == false) {
+      this.setData({
+        tankuang: true
+      })
+      return
+    }
+    else{
+    wx.navigateTo({
+      url: '/pages/weather/weather',
+    })
+    }
+
+  },
 
 
   // 地址信息

@@ -82,6 +82,16 @@
         </view>
       </view>
     </view>
+    <view class="userMain_nav">
+      
+      <view class='user_list' bindtap='getweather'>
+        <image src='../images/user_tq.png'></image>
+        <view class="uesr_right">
+          <view class='user_list_name'>天气</view>
+          <view class="navigator-arrow ll"></view>
+        </view>
+      </view>
+    </view>
   </view>
 
 </view>

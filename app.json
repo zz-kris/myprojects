@@ -3,11 +3,17 @@
     "pages/NewsCenter/NewsCenter",
     "pages/user_memo/user_memo",
     "pages/user/user",
-    
     "pages/NewCenter_detail/NewCenter_detail",
     "pages/memo_detail/memo_detail",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/user_weather/user_weather",
+    "pages/weather/weather"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序获取当前位置天气"
+    }
+  },
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#edb437",
