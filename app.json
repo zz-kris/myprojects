@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/NewsCenter/NewsCenter",
-    "pages/user/user",
     "pages/user_memo/user_memo",
-    "pages/index/index",
+    "pages/user/user",
     
     "pages/NewCenter_detail/NewCenter_detail",
-    "pages/memo_detail/memo_detail"
+    "pages/memo_detail/memo_detail",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
