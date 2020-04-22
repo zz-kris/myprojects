@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "slide-view": "/common/slideview/slideview"
+  },
+  "navigationBarTitleText": "我的便签"
+}

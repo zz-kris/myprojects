@@ -1,0 +1,11 @@
+<!--pages/NewCenter_detail/NewCenter_detail.wxml-->
+<view class="detail">
+  <view class="detail_title">
+    {{detail.title}}
+  </view>
+  <view class="detail_content" >
+  <rich-text nodes="{{detail.content}}" class='ctext' bindlongpress="copy" data-text="{{detail.content}}" selectable='true'></rich-text> 
+  </view>
+
+
+</view>

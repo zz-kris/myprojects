@@ -1,0 +1,92 @@
+<!--pages/memo_detail/memo_detail.wxml-->
+<view>
+<view class="add" bindtap="getaddmemo">+</view>
+<view class='Browsinghistory' wx:if="{{list.length !== 0}}" >
+  <view class='operation'>
+    <!-- <text wx:if="{{!ch}}" bindtap="hideModal">编辑</text> -->
+    <!-- <text wx:if="{{ch}}" bindtap="hideModal">完成</text> -->
+  </view>
+  <view class='collect'>您一共有<text>{{list.length}}</text>条便签</view>
+
+
+  <view class='date' wx:for="{{list}}" wx:key="index">
+    <view class="checkList">
+      <view class='commodity' >
+      <slide-view class="slide" bindbuttontap="getDelete" data-id="{{item.id}}" slideWidth="95" duration="650" buttons="{{[{text: '删除',type:'warn'}]}}">
+      <view style="display:flex" catchtap="goDetail" data-id="{{item.id}}">
+        <view class='product_content' style="width:{{item.imgsrc!=='' ? Width : ''}}rpx;">
+          <view class="product_content_time">{{item.updated_at}}</view>
+          <view  class="product_content_content">{{m1.delHtmlTag(item.content)}}</view>
+        </view>
+        <view class='img' wx:if="{{item.imgsrc}}"><image src="{{item.imgsrc}}"></image></view>
+      </view>
+      </slide-view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- <view class='date' wx:for="{{list}}" wx:key="index">
+    <view class="checkList">
+
+    <label class="checkbox">
+    <checkbox-group  data-index="{{index}}" data-name="{{item.id}}" bindtap='select' >
+      <checkbox wx:if="{{ch}}" value="{{item.name}}" checked="{{item.checked}}" data-index="{{index}}" data-name="{{item.id}}" bindtap='select'/>
+      <block wx:if="{{item.checked && ch}}">
+        <image class='select' src='../images/xzdg.png'></image>
+      </block>
+      <block wx:elif="{{ch}}">
+        <image class='select' src='../images/xzdgs.png'></image>
+      </block>
+     </checkbox-group>
+    </label>
+
+      <view class='commodity' bindtap="goDetail" data-id="{{item.id}}">
+        
+        <view class='product_content' style="width:{{item.imgsrc!=='' ? Width : ''}}rpx;">
+          <view class="product_content_time">{{item.updated_at}}</view>
+          <view  class="product_content_content">{{m1.delHtmlTag(item.content)}}</view>
+        </view>
+        <view class='img' wx:if="{{item.imgsrc}}"><image src="{{item.imgsrc}}"></image></view>
+      </view>
+    </view>
+  </view> -->
+  
+  <view class="add" wx:if="{{!ch}}" bindtap="getaddmemo">+</view>
+  <!-- <view class="zw" wx:if="{{ch}}"></view>
+  <view class='del' wx:if="{{ch}}">
+     <label class="checkbox">
+      <checkbox-group bindchange="selectAll">
+        <checkbox value="{{item.name}}" data-statue="selectilall" checked="{{item.checked}}"/>
+        <block wx:if="{{selectilall}}">
+          <image class='select' src='../images/xzdg.png'></image>
+        </block>
+        <block wx:else>
+          <image class='select' src='../images/xzdgs.png'></image>
+        </block>
+        全选
+        </checkbox-group> 
+
+      </label>
+      <button bindtap="goDel" class="btn {{del?'active':'btnactive'}}">删除</button>
+  </view> -->
+</view>
+
+<view class='no' wx:else>
+  <!-- <view class="image"><image src="../image/iconfont/empty.png"></image></view> -->
+  <view>
+    <view>您还没有便签哦</view>
+    
+  </view>
+  
+  <!-- <view><button bindtap="goBack">去逛逛</button></view> -->
+</view>
+</view>
+<wxs module="m1">
+var delHtmlTag = function(str) {
+    var reg = getRegExp("<[^>]+>", "g");
+    var result = str.replace(reg, '');
+    return result; 
+  }
+module.exports.delHtmlTag = delHtmlTag;
+</wxs>

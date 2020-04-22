@@ -1,0 +1,38 @@
+<!--pages/NewsCenter/NewsCenter.wxml-->
+<view class="new">
+<!-- 自定义头部 -->
+  <!-- <view class='nav bg-white' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      <view class="INinputheader">
+        <image class="INimage" src='../image/iconfont/search@2x.png'></image>
+        <icon class="INsearchicon" type="search" size="12"/>
+        <input type='text' bindconfirm='confirmTap' confirm-type="search" class="weui-input" placeholder="搜你想要" placeholder-style="color:rgba(23, 141, 251, 1);"/>
+      </view>
+    </view>
+  </view>
+  <view style='height:{{navH}}px'></view> -->
+
+  <view class="content">
+    <view class="message" bindtap="getdetail" data-id="{{item.id}}" wx:for="{{news}}" wx:key="index">
+      <view class="message_left">
+        <view class="message_num">
+          <image wx:if="{{index+1==1}}" src='../images/new_one.png'></image>
+          <image wx:elif="{{index+1==2}}" src='../images/new_two.png'></image>
+          <image wx:elif="{{index+1==3}}" src='../images/new_three.png'></image>
+          <text wx:else>{{index+1}}</text>
+        </view>
+        <view class="message_detail">
+          <view class="message_detail_title">{{item.title}}</view>
+          <view class="message_detail_num">
+           {{item.updated_at}}
+          </view>
+        </view>
+      </view>
+      
+      <view class="message_right">
+        <image src='{{item.image}}'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
