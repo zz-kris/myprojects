@@ -124,6 +124,7 @@ Page({
     })
     }
   },
+  // 写便签
   getmemodetail(){
     if (this.data.isLogin == false) {
       this.setData({
@@ -138,6 +139,7 @@ Page({
     }
 
   },
+  // 天气
   getweather(){
     if (this.data.isLogin == false) {
       this.setData({
@@ -148,6 +150,21 @@ Page({
     else{
     wx.navigateTo({
       url: '/pages/weather/weather',
+    })
+    }
+
+  },
+  // 随机
+  getpraw(){
+    if (this.data.isLogin == false) {
+      this.setData({
+        tankuang: true
+      })
+      return
+    }
+    else{
+    wx.navigateTo({
+      url: '/pages/user_praw/user_praw',
     })
     }
 

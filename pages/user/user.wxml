@@ -92,6 +92,24 @@
         </view>
       </view>
     </view>
+    <view class="userMain_nav">
+      <view class='user_list' bindtap='getpraw'>
+        <image src='../images/user_sj.png'></image>
+        <view class="uesr_right">
+          <view class='user_list_name'>随机小游戏</view>
+          <view class="navigator-arrow ll"></view>
+        </view>
+      </view>
+    </view>
+    <view class="userMain_nav">
+      <view class='user_list' bindtap='getweather'>
+        <image src='../images/user_rl.png'></image>
+        <view class="uesr_right">
+          <view class='user_list_name'>日历</view>
+          <view class="navigator-arrow ll"></view>
+        </view>
+      </view>
+    </view>
   </view>
 
 </view>

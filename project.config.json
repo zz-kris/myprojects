@@ -24,7 +24,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
+	"libVersion": "2.10.4",
 	"appid": "wx915ff15e3a48d776",
 	"projectname": "hello-world",
 	"isGameTourist": false,

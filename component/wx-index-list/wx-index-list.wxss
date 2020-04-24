@@ -46,7 +46,7 @@
 }
 
 .list-right-wrapper {
-  position: fixed;
+  position: absolute;
   top: 100rpx;
   right: 20rpx;
   padding: 10rpx 0;

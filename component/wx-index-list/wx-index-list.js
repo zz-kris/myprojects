@@ -38,7 +38,7 @@ Component({
     let data = this.data.data;
     this.resetRight(data);
     if (this.data.myCity) {
-      this.getCity()
+      // this.getCity()
     }
   },
   methods: {
@@ -53,16 +53,17 @@ Component({
         rightArr
       })
     },
-    getCity() {
-      wx.getLocation({
-        type: 'wgs84',
-        success: function (res) {
-          this.latitude = res.latitude;
-          this.longitude = res.longitude;
-           console.log(res)
-        }
-      })
-    },
+    // getCity() {
+    //   wx.getLocation({
+    //     type: 'wgs84',
+    //     success: function (res) {
+    //       console.log(res)
+    //       this.latitude = res.latitude;
+    //       this.longitude = res.longitude;
+           
+    //     }
+    //   })
+    // },
     // 右侧字母点击事件
     jumpMt(e) {
       let jumpNum = e.currentTarget.dataset.id;
@@ -91,6 +92,7 @@ Component({
     _search(){
       console.log("搜索")
       let data = this.data.data;
+      console.log(data)
       let newData = [];
       for (let i = 0; i < data.length; i++) {
         let itemArr = [];

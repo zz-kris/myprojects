@@ -7,7 +7,8 @@
     "pages/memo_detail/memo_detail",
     "pages/index/index",
     "pages/user_weather/user_weather",
-    "pages/weather/weather"
+    "pages/weather/weather",
+    "pages/user_praw/user_praw"
   ],
   "permission": {
     "scope.userLocation": {

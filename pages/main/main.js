@@ -36,7 +36,7 @@ Page({
   loadCity:function(latitude,longitude){
     var page=this;  
      wx.request({
-        url: 'http://api.map.baidu.com/geocoder/v2/?ak=D6WOzHaymzVVKvgiy8UbhQEznkgeK6BD&location='+latitude+','+longitude+'&output=json',
+        url: 'http://api.map.baidu.com/geocoder/v2/?ak=PK7NXMQEjVDzBf8BsY6ilSucIMY53lVb&location='+latitude+','+longitude+'&output=json',
         header: {
             'Content-Type': 'application/json'
         },

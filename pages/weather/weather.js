@@ -1,4 +1,4 @@
-var bmap = require('../../utils/bmap-wx.min.js');
+var bmap = require('../../utils/bmap-wx.js');
 
 var util = require('../../utils/util.js');
 var address = require('../../utils/city.js');
@@ -38,7 +38,7 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: '领梭天气',
+      title: '天气',
       path: '/pages/weather/weather',
       // desc: '描述性文字',
     }
@@ -65,10 +65,13 @@ Page({
   },
   // 显示城市选择
   changecityTap: function () {
-    //startAddressAnimation(this, true);
+    
     this.setData({
       modal: { showshade: true}
     });
+  },
+  selectchangecityTap(){
+    startAddressAnimation(this, true);
   },
   // 点击蒙版时取消组件的显示
   hideCitySelected: function (e) {
@@ -137,6 +140,7 @@ Page({
 })
 
 function refresh(that, city) {
+  console.log(city)
   that.setData({
     loaddingHide: false,
   });
