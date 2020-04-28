@@ -1,0 +1,15 @@
+<!--pages/user_praw/user_praw.wxml-->
+<view class="praw">
+  <view class="search_top">
+    <view class="search_tleft">
+      <input class='search_inp' placeholder='添加内容' confirm-type='search' bindinput='input_txt' bindconfirm='btn_search' value='{{searchTxt}}'  />
+      <view class="search_sc" bindtap="clearInputEvent"><image src='../images/sssc.png'></image></view>
+    </view>
+    <view class="search_tright" bindtap="btn_search">添加</view>
+  </view>
+  <view class="praw_bottom">
+    <view class="praw_item" wx:for="{{arr}}" wx:key="index">{{item}}</view>
+  </view>
+  <button bindtap="getgo">{{button}}</button>
+  <view>{{a}}</view>
+</view>

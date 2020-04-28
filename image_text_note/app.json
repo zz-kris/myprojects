@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/NewsCenter/NewsCenter",
+    "pages/user_memo/user_memo",
+    "pages/user/user",
+    "pages/NewCenter_detail/NewCenter_detail",
+    "pages/memo_detail/memo_detail",
+    "pages/index/index",
+    "pages/user_weather/user_weather",
+    "pages/weather/weather",
+    "pages/user_praw/user_praw",
+    "pages/user_calendar/user_calendar"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序获取当前位置天气"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#edb437",
+    "navigationBarTitleText": "图文日报",
+    "navigationBarTextStyle": "white"
+  },
+  "plugins": {
+    "sdkPlugin": {
+      "version": "3.9.0",
+      "provider": "wxc6b86e382a1e3294"
+    }
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#8a8a8a",
+    "selectedColor": "#edb437",
+    "list": [
+      {
+        "pagePath": "pages/NewsCenter/NewsCenter",
+        "text": "推荐",
+        "iconPath": "pages/images/tab_home_nor.png",
+        "selectedIconPath": "pages/images/tab_home_pre.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/images/tab_my_nor.png",
+        "selectedIconPath": "pages/images/tab_my_pre.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

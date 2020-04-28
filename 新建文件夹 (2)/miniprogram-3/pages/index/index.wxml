@@ -1,0 +1,64 @@
+<view class='container'>
+  <view style="border-radius:10px; background:#fff;display:block; width:100%;">
+    <view style="padding:10px;">
+      <image mode="widthFix" src="/img/icon1.png" style="width:50rpx;height:50rpx;vertical-align: middle;" /> {{weatherweek.city}}</view>
+    <view style="padding:20px 0;">
+      <view style="font-size:48px;">{{weatherweek.data[0].tem}}℃</view>
+      <view style="font-size:18px;">{{weatherweek.data[0].wea}}</view>
+    </view>
+  </view>
+<!--2-->
+  <view style="margin-top:10px; padding:10px 0; border-radius:10px; background:#fff;display:block; width:100%;">
+    <block wx:for="{{weatherweek.data}}">
+      <view class="weui-flex" style="padding-bottom:10px;">
+        <view class="weui-flex__item">{{item.week}}</view>
+        <view class="weui-flex__item">{{item.wea}}</view>
+        <view class="weui-flex__item">{{item.tem2}} - {{item.tem1}}℃</view>
+      </view>
+    </block>
+  </view>
+<!--./2-->
+<!--3-->
+  <view style="margin-top:10px; border-radius:10px; background:#fff;display:block; width:100%;">
+      <view style="font-size:16px; padding:10px 0;font-weight:bold;">生活指数</view>
+      <view class="weui-grids">
+                <view class="weui-grid">
+                    <image class="weui-grid__icon" src="/img/icon8.png" />
+                    <view class="weui-grid__label">紫外线指数</view>
+                    <view class="weui-grid__label">{{weatherweek.data[0].index[0].level}}</view>
+                </view>
+                <view class="weui-grid">
+                    <image class="weui-grid__icon" src="/img/icon2.png" />
+                    <view class="weui-grid__label">减肥指数</view>
+                    <view class="weui-grid__label">{{weatherweek.data[0].index[1].level}}</view>
+                </view>
+                <view class="weui-grid">
+                    <image class="weui-grid__icon" src="/img/icon6.png" />
+                    <view class="weui-grid__label">血糖指数</view>
+                    <view class="weui-grid__label">{{weatherweek.data[0].index[2].level}}</view>
+                </view>
+                <view class="weui-grid">
+                    <image class="weui-grid__icon" src="/img/icon7.png" />
+                    <view class="weui-grid__label">穿衣指数</view>
+                    <view class="weui-grid__label">{{weatherweek.data[0].index[3].level}}</view>
+                </view>
+                <view class="weui-grid">
+                    <image class="weui-grid__icon" src="/img/icon4.png" />
+                    <view class="weui-grid__label">洗车指数</view>
+                    <view class="weui-grid__label">{{weatherweek.data[0].index[4].level}}</view>
+                </view>
+                <view class="weui-grid">
+                    <image class="weui-grid__icon" src="/img/icon3.png" />
+                    <view class="weui-grid__label">空气指数</view>
+                    <view class="weui-grid__label">{{weatherweek.data[0].index[5].level}}</view>
+                </view>
+        </view>
+  </view>
+<!--./3-->
+
+    <!--5-->
+  <view style="margin-top:10px; padding:10px 0; border-radius:10px; background:#fff;display:block; width:100%; text-align:left;">
+    <view style="padding:10px;">生活是一面镜子。你对它笑，它就对你笑；你对它哭，它也对你哭。</view>
+  </view>
+<!--./5-->
+</view>

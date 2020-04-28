@@ -1,5 +1,0 @@
-<!--pages/user_praw/user_praw.wxml-->
-<view>
-  <button bindtap="getgo">开始</button>
-  <view>{{a}}</view>
-</view>

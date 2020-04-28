@@ -1,0 +1,9 @@
+@import '/weui/weui.wxss';
+.weui-grids{
+  border-top: 1rpx solid #f1f1f1;
+  border-left: 1rpx solid #f1f1f1;
+}
+.weui-grid{
+  border-right: 1rpx solid #f1f1f1;
+  border-bottom: 1rpx solid #f1f1f1;
+}
