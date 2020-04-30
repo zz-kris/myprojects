@@ -1,1 +1,9 @@
 /* pages/user_calendar/user_calendar.wxss */
+.data{
+  padding: 30rpx 27rpx 0 27rpx;
+}
+.navList{
+  padding: 15rpx 0rpx;
+  display: flex;
+  font-size: 25rpx;
+}

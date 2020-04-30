@@ -1,4 +1,5 @@
 // pages/user_praw/user_praw.js
+var util = require('../../utils/util.js')
 var timer;//计时器
 var searchArray = [];
 Page({
@@ -11,7 +12,9 @@ Page({
     testNum :true,
     a:'',
     searchTxt: '',
-    button:'开始'
+    button:'开始',
+    num:0,
+    arrList:[]
 
   },
 
@@ -23,13 +26,16 @@ Page({
    
     if (wx.getStorageSync("arr")){
       that.setData({
-        arr: wx.getStorageSync("arr").reverse(),
-        isHide:true
+        arr: wx.getStorageSync("arr").reverse()
       })
     }else{
       that.setData({
-        arr:['哈','西瓜','黄焖鸡米饭','胡辣汤','煎饼果子'],
-        isHide:false
+        arr:['猪蹄','西瓜','黄焖鸡米饭','胡辣汤','煎饼果子','西瓜','西葫芦','土豆']
+      })
+    }
+    if (wx.getStorageSync("arrList")){
+      that.setData({
+        arrList: wx.getStorageSync("arrList").reverse()
       })
     }
 
@@ -56,12 +62,53 @@ Page({
       timer = setInterval(function(){
           var num = that.random(0,that.data.arr.length - 1);
           that.setData({
-            a:that.data.arr[num]
+            a:that.data.arr[num],
+            num:num
           })
       },20)
   },
   stop(){
-      clearInterval(timer);      
+    var that=this
+      clearInterval(timer); 
+      wx.showModal({
+        title: '提示',
+        content: that.data.a,
+        success: function(res) {
+          var time = util.formatTime(new Date());
+          var obj={
+            name:that.data.a,
+            time:time
+          }
+          var list=that.data.arrList.reverse()
+          console.log(list)
+          if (that.data.arrList.length >= 0 && that.data.arrList.length < 20){
+            searchArray = list.concat(obj)
+            that.setData({
+              arrList:searchArray.reverse()
+            })
+            console.log(searchArray)
+            wx.setStorageSync("arrList", that.data.arrList)
+          } else if (that.data.arrList.length >= 20) { 
+            //数据不存在时删除第一个后追加
+            list.splice(0, 1)
+            searchArray = list.concat(obj);
+            that.setData({
+              arrList:searchArray.reverse()
+            })
+            wx.setStorageSync("arrList", that.data.arrList)
+          }
+          
+          
+        }
+      })  
+      
+  },
+  getDelelog(){
+    var that=this
+    that.setData({
+      arrList:[]
+    })
+    wx.setStorageSync("arrList", that.data.arrList)
   },
   random(a,b){
       var randomNum = Math.round(Math.random() * (b - a) + a);
@@ -71,6 +118,18 @@ Page({
     this.setData({
       searchTxt: ''
     })
+  },
+  // 删除
+  getDelete(e){
+    var that=this
+    console.log(e.currentTarget.dataset.index)
+    var index=e.currentTarget.dataset.index
+    searchArray = that.data.arr
+    searchArray.splice(index, 1)
+    that.setData({
+      arr:searchArray
+    })
+    wx.setStorageSync("arr", that.data.arr)
   },
   input_txt: function(e) { //输入框输入事件
     var that = this;
@@ -89,11 +148,8 @@ Page({
       return;
     }
     that.buildHistory(that.data.searchTxt) //调用历史记录事件
-    // this.onLoad()
-      
-  
   }, 
-  //建立搜索记录
+  //添加内容
   buildHistory: function(e) {
     var that=this
     if (that.data.arr.length > 0 && that.data.arr.length < 50) { //小于指定数量之内

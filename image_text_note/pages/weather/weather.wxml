@@ -37,7 +37,8 @@
   <view class="location">
     <image mode='aspectFit' style='margin-top: 5px; margin-right: 4px; width:15px; height:15px;' src='../../img/location.svg'></image>
     <text class="lfont-size" bindtap='selectchangecityTap'>{{currentCity}}</text>
-    <text class="sfont-size" bindtap='changecityTap' style='margin-left: 4px;'>[更换]</text>
+    <text class="sfont-size" bindtap='selectchangecityTap' style='margin-left: 4px;'>[更换]</text>
+    <!-- <text class="sfont-size" bindtap='changecityTap' style='margin-left: 4px;'>[更换]</text> -->
   </view>
 
   <view>
@@ -102,7 +103,7 @@
 <view class='index'>
   <view style='display: flex; align-items: center;'>
     <view style='padding:16px;'>
-      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[0].title}}.svg'></image>
+      <!-- <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[0].title}}.svg'></image> -->
     </view>
     <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
       <rich-text class="smfont-size" id='{{index[0].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[0].tipt}} {{index[0].zs}}</rich-text>
@@ -112,7 +113,7 @@
   <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
   <view style='display: flex; align-items: center;'>
     <view style='padding:16px;'>
-      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[1].title}}.svg'></image>
+      <!-- <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[1].title}}.svg'></image> -->
     </view>
     <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
       <rich-text class="smfont-size" id='{{index[1].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[1].tipt}} {{index[1].zs}}</rich-text>
@@ -122,7 +123,7 @@
   <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
   <view style='display: flex; align-items: center;'>
     <view style='padding:16px;'>
-      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[2].title}}.svg'></image>
+      <!-- <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[2].title}}.svg'></image> -->
     </view>
     <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
       <rich-text class="smfont-size" id='{{index[2].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[2].tipt}} {{index[2].zs}}</rich-text>
@@ -132,7 +133,7 @@
   <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
   <view style='display: flex; align-items: center;'>
     <view style='padding:16px;'>
-      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[3].title}}.svg'></image>
+      <!-- <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[3].title}}.svg'></image> -->
     </view>
     <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
       <rich-text class="smfont-size" id='{{index[3].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[3].tipt}} {{index[3].zs}}</rich-text>
@@ -142,7 +143,7 @@
   <view style='height:1px;margin-left:20px;margin-right:20px;background-color: rgba(255,255,255, 0.5);'></view>
   <view style='display: flex; align-items: center;'>
     <view style='padding:16px;'>
-      <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[4].title}}.svg'></image>
+      <!-- <image mode='aspectFit' style='width:40px; height:40px;' src='../../img/{{index[4].title}}.svg'></image> -->
     </view>
     <view style='padding-right:12px; padding-bottom:8px; display: flex; flex-direction: column; text-align: left;'>
       <rich-text class="smfont-size" id='{{index[4].title}}' style='padding-top:16px;padding-bottom:8px; text-decoration:underline;' bindtap="tips">{{index[4].tipt}} {{index[4].zs}}</rich-text>

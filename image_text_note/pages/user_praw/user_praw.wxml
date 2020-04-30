@@ -8,8 +8,24 @@
     <view class="search_tright" bindtap="btn_search">添加</view>
   </view>
   <view class="praw_bottom">
-    <view class="praw_item" wx:for="{{arr}}" wx:key="index">{{item}}</view>
+    <view class="praw_item {{num==index? 'num' : ''}}" wx:for="{{arr}}"  wx:key="index">
+      {{item}}
+      <view data-index="{{index}}" bindtap="getDelete" class="praw_bottom_sc" ><image src='../images/sssc.png'></image></view>
+    </view>
+    
   </view>
   <button bindtap="getgo">{{button}}</button>
-  <view>{{a}}</view>
+  <view class="logText">
+    <text>抽取记录------------时间</text>
+    <text bindtap="getDelelog">清楚记录</text>
+  </view>
+  <scroll-view scroll-y class="logList">
+    <view wx:for="{{arrList}}" :key="index">
+    {{item.name}}------------{{item.time}}
+    </view>
+  
+  </scroll-view>
+  
+
+
 </view>
