@@ -1,15 +1,15 @@
 {
   "pages": [
     "pages/NewsCenter/NewsCenter",
-    "pages/user_memo/user_memo",
     "pages/user/user",
     "pages/NewCenter_detail/NewCenter_detail",
-    "pages/memo_detail/memo_detail",
     "pages/index/index",
     "pages/user_weather/user_weather",
     "pages/weather/weather",
     "pages/user_praw/user_praw",
-    "pages/user_calendar/user_calendar"
+    "pages/user_calendar/user_calendar",
+    "pages/user_memo/user_memo",
+    "pages/memo_detail/memo_detail"
   ],
   "permission": {
     "scope.userLocation": {

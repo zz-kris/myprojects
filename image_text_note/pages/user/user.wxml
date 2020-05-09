@@ -62,7 +62,7 @@
     </view> -->
 
   <view class="main_box">
-    <!-- <view class="userMain_nav">
+    <view class="userMain_nav">
       <view class='user_list' bindtap='getmemodetail'>
         <image src='../images/user_detail.png'></image>
         <view class="uesr_right">
@@ -71,8 +71,8 @@
         </view>
       </view>
       
-    </view> -->
-    <!-- <view class="userMain_nav">
+    </view>
+    <view class="userMain_nav">
       
       <view class='user_list' bindtap='getmemo'>
         <image src='../images/user_bq.png'></image>
@@ -81,7 +81,7 @@
           <view class="navigator-arrow ll"></view>
         </view>
       </view>
-    </view> -->
+    </view>
     <view class="userMain_nav">
       
       <view class='user_list' bindtap='getweather'>
